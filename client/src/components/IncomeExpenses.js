@@ -7,12 +7,17 @@ export const IncomeExpenses = () => {
   const income = amounts
     .filter((item) => item > 0)
     .reduce((acc, item) => (acc += item), 0)
-    .toFixed(2);
+    .toFixed(2)
+    .toString()
+    .replace(".", ",");
 
   const expense = (
     amounts.filter((item) => item < 0).reduce((acc, item) => (acc += item), 0) *
     -1
-  ).toFixed(2);
+  )
+    .toFixed(2)
+    .toString()
+    .replace(".", ",");
 
   return (
     <div className="inc-exp-container">
