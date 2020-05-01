@@ -1,0 +1,9 @@
+# Dependencies #
+/client/node_modules
+/backend/node_modules
+/backend/config
+
+
+# Logs #
+logs/
+*.log
