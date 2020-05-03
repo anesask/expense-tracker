@@ -21,15 +21,15 @@ export const IncomeExpenses = () => {
 
   return (
     <div className="inc-exp-container">
-      <div className="">
-        <h4>Income</h4>
-        <p id="money-plus" className="money plus">
+      <div className="income-container">
+        <h4 className="inx-exp-heading">Income</h4>
+        <h1 id="money-plus" className="money plus">
           {income}
-        </p>
+        </h1>
       </div>
-      <div className="">
-        <h4>Expense</h4>
-        <p className="money minus">{expense}</p>
+      <div className="expense-container">
+        <h4 className="inx-exp-heading">Expense</h4>
+        <h1 className="money minus">{expense}</h1>
       </div>
     </div>
   );

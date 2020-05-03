@@ -1,27 +1,82 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
 
-:root {
-  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
+// Variables
+$shadow: 9px 0px 17px -4px rgba(0, 0, 0, 0.37);
+$shadow-2: 5px 0px 5px 0px rgba(0, 0, 0, 0.05);
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+@media screen and (max-width: 872px) {
+  .sidebar{
+    background: blue;
+    flex-direction: row;
+    height: auto;
+  }
+}
+
 
 body {
-  background-color: #f7f7f7;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin: 0;
-  font-family: 'Lato', sans-serif;
+  color: #223241e1;
+  font-family: 'Work Sans', sans-serif;
 }
 
-.container {
-  margin: 30px auto;
-  width: 350px;
+.row {
+  display: flex;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  padding: 20px 0;
+  flex: 30%;
+  background: #ffffff;
+}
+.content {
+  flex: 70%;
+  text-align: center;
+  padding: 50px 100px;
+  background: #f8f9fb;
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+.balance {
+  padding: 35px 0;
+  .balance-header:hover {
+    text-decoration: underline;
+  }
+}
+
+.inc-exp-container {
+  .income-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #cce3ff;
+    width: 300px;
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: $shadow-2;
+  }
+  .expense-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff1d5;
+    width: 300px;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: $shadow-2;
+  }
 }
 
 h1 {
@@ -40,24 +95,6 @@ h4 {
   text-transform: uppercase;
 }
 
-.inc-exp-container {
-  background-color: #fff;
-  box-shadow: var(--box-shadow);
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
-}
-
-.inc-exp-container > div {
-  flex: 1;
-  text-align: center;
-}
-
-.inc-exp-container > div:first-of-type {
-  border-right: 1px solid #dedede;
-}
-
 .money {
   font-size: 20px;
   letter-spacing: 1px;
@@ -65,11 +102,11 @@ h4 {
 }
 
 .money.plus {
-  color: #2ecc71;
+  color: #10c06e;
 }
 
 .money.minus {
-  color: #c0392b;
+  color: #ff5e57;
 }
 
 label {
@@ -77,10 +114,10 @@ label {
   margin: 10px 0;
 }
 
-input[type='text'],
-input[type='number'] {
+input[type="text"],
+input[type="number"] {
   border: 1px solid #dedede;
-  border-radius: 2px;
+  border-radius: 5px;
   display: block;
   font-size: 16px;
   padding: 10px;
@@ -89,20 +126,34 @@ input[type='number'] {
 
 .btn {
   cursor: pointer;
-  background-color: #9c88ff;
-  box-shadow: var(--box-shadow);
+  background-color: #575fcf;
   color: #fff;
   border: 0;
   display: block;
   font-size: 16px;
-  margin: 10px 0 30px;
+  margin: 25px 0;
   padding: 10px;
   width: 100%;
+  border-radius: 10px;
+  box-shadow: $shadow-2;
 }
 
 .btn:focus,
 .delete-btn:focus {
   outline: 0;
+}
+
+.transaction-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  .transaction-date {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-top: 10px;
+  }
 }
 
 .list {
@@ -113,8 +164,7 @@ input[type='number'] {
 
 .list li {
   background-color: #fff;
-  box-shadow: var(--box-shadow);
-  color: #333;
+  box-shadow: $shadow-2;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -123,21 +173,20 @@ input[type='number'] {
 }
 
 .list li.plus {
-  border-right: 5px solid #2ecc71;
+  border-right: 5px solid #0be881;
 }
 
 .list li.minus {
-  border-right: 5px solid #c0392b;
+  border-right: 5px solid #ff5e57;
 }
 
 .delete-btn {
   cursor: pointer;
-  background-color: #e74c3c;
   border: 0;
-  color: #fff;
-  font-size: 20px;
+  color: #ff5e57;
+  font-size: 25px;
   line-height: 20px;
-  padding: 2px 5px;
+  padding: 12px 5px;
   position: absolute;
   top: 50%;
   left: 0;
@@ -149,3 +198,4 @@ input[type='number'] {
 .list li:hover .delete-btn {
   opacity: 1;
 }
+

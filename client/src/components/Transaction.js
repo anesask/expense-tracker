@@ -7,7 +7,13 @@ export const Transaction = ({ transaction }) => {
 
   return (
     <li className={transaction.amount < 0 ? "minus" : "plus"}>
-      {transaction.text}
+      <div className="transaction-container">
+        {transaction.text}
+        <p className="transaction-date">
+          {new Date(transaction.createdAt).toLocaleDateString()}{" "}
+        </p>
+      </div>
+
       <span>
         {sign} €{Math.abs(transaction.amount)}
       </span>
